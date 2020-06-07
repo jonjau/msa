@@ -1,6 +1,19 @@
 # News Categorizer
 
-This project is a submission for the Microsoft Student Accelerator Program 2020.
+**This project is a submission for the Microsoft Student Accelerator Program 2020.**
+
+## Table of contents
+
+* [Description](#description)
+* [Dataset Sources](#dataset-sources)
+* [Training and testing the models](#training-and-testing-the-models)
+* [Results](#results)
+* [Environment setup and dependencies](#environment-setup-and-dependencies)
+
+## Description
+
+The choices of models and datasets are summarized in
+[a pdf](tex/description.pdf).
 
 The aims of this project were:
 
@@ -14,13 +27,6 @@ The aims of this project were:
 The classifier models were trained to, given a headline text of any length,
 predict what news category it would belong to, out of "business",
 "entertainment", "health", and "science/technology".
-
-## Table of contents
-
-* [Dataset Sources](#dataset-sources)
-* [Training and testing the models](#training-and-testing-the-models)
-* [Results](#results)
-* [Environment setup and dependencies](#environment-setup-and-dependencies)
 
 ## Dataset sources
 
@@ -36,7 +42,8 @@ predict what news category it would belong to, out of "business",
 The training and testing code for the three models used are
 in both `news-categorizer.py` and `news-categorizer.ipynb` (the former is
 just a conversion of the latter). Running them will both train and test the
-models, as well as produce output and visualizations.
+models, as well as produce output and visualizations. The environment setup
+is detailed [here](#environment-setup-and-dependencies).
 
 The exact preprocessing steps that were taken are documented in the Jupyter
 notebook.
