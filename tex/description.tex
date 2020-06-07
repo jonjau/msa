@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{parskip}
+\usepackage{hyperref}
+
+\geometry{a4paper, margin=1in}
+
+\setlength{\parindent}{0pt}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+\Large{Categorizing News Articles with Machine Learning} \\[2mm]
+\large\textbf{jonathan.c.jauhari@gmail.com} \\[2mm]
+\large{June 2020}
+
+\href{https://github.com/jonjau/msa-ml-project}{Project repository link}
+
+\subsection*{Aims}
+
+\begin{itemize}
+    \item To develop a news headline text classifier.
+    \item To compare 3 machine learning approaches (Naive Bayes, SGD, neural 
+          network) in medium-sized text classification.
+    \item To roughly estimate what kind of articles the New York Times has been
+          publishing in 2020 (expecting a spike in health-related articles
+          due to the pandemic).
+\end{itemize}
+
+
+\subsection*{Models used}
+
+Three models were compared before deciding on which one to use in the New
+York Times analysis (the detailed results of the comparison are listed in the
+README):
+
+\begin{itemize}
+    \item Multinomial Naive Bayes classifier
+    \item Stochastic Gradient Descent (SGD) classifier
+    \item Neural network classifier with 2 hidden layers (16 nodes each)
+\end{itemize}
+
+The (Multinomial) Naive Bayes is well-known to be a great baseline model for
+text identification (its assumption of feature independence is more or less
+true for tokens in a document). The SGD classifier is based on
+optimising gradients, and is also a model that is recommended by the
+scikit-learn library for text classification.
+
+Ultimately, however, the neural network approach proved to be the most
+accurate, at the cost of higher training and preprocessing time. The neural
+network model was therefore chosen for the New York Times headlines analysis.
+
+\subsection*{Datasets used}
+
+\begin{itemize}
+\item
+\href{https://www.kaggle.com/uciml/news-aggregator-dataset}
+{News Aggregator Dataset}:
+Headlines and categories of 400k news stories from 2014,
+derived from the UCI Machine Learning Repository
+\href{http://archive.ics.uci.edu/ml/datasets/News+Aggregator}{dataset}.
+\item
+The New York Times 2020 headlines of monthly free to read articles that I
+gathered from:
+\href{https://spiderbites.nytimes.com/2020/}
+{their site map}.
+\end{itemize}
+
+The News Aggregator Dataset was chosen, among the many \textbf{labeled} news
+article datasets that are available, because it had by far the most entries
+when compared to other datasets. Though it only had a few categories, each
+category was broad enough to be sufficient for the analysis (a rough
+estimate).
+
+It also did not require as much preprocessing as some other datasets, such 
+as the Reuters news dataset, as it was already in a CSV format, with few
+missing values, and well-documented features.
+
+\end{document}
