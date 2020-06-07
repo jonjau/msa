@@ -5,7 +5,8 @@
 # 
 # Predicting news article categories by headline text.
 # 
-# Compares three models: Naive Bayes, SGD, and neural network.
+# Compares three models: Naive Bayes, SGD, and neural network, then
+# applies the trained neural network to roughly categorize 2020 New York Times headlines.
 # 
 # > The dataset is from https://www.kaggle.com/uciml/news-aggregator-dataset.
 # >
@@ -23,6 +24,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 import unicodedata
+import time
 import string
 import os
 import csv
@@ -173,7 +175,9 @@ x_train.shape, x_test.shape, y_train.shape, y_test.shape
 # In[9]:
 
 
-print('Vectorising text into features and encoding catergorical labels...')
+start_time = time.time()
+
+print('Vectorising text into features and encoding categorical labels...')
 
 # Turn text into integer count vectors
 vectorizer = CountVectorizer()
@@ -190,6 +194,9 @@ encoder.fit(y_train['CATEGORY'])
 y_train = encoder.transform(y_train['CATEGORY'])
 y_test = encoder.transform(y_test['CATEGORY'])
 
+duration = time.time() - start_time
+print(f'Preprocessing for Naive Bayes and SGD took {duration} seconds.')
+
 
 # ## Training and evaluating the models
 # 
@@ -201,9 +208,14 @@ y_test = encoder.transform(y_test['CATEGORY'])
 
 
 print('Training and evaluating Naive Bayes...')
+start_time = time.time()
+
 # Naive Bayes model
 nb = MultinomialNB()
 nb.fit(x_train, y_train)
+
+duration = time.time() - start_time
+print(f'Training the Naive Bayes model took {duration} seconds.')
 
 score = nb.score(x_test, y_test)
 print(f'Multinomial Naive Bayes accuracy:\n{score}')
@@ -213,9 +225,14 @@ print(f'Multinomial Naive Bayes accuracy:\n{score}')
 
 
 print('Training and evaluating SGD...')
+start_time = time.time()
+
 # Stochastic gradient descent classifier
 sgd = SGDClassifier(early_stopping=True)
 sgd.fit(x_train, y_train)
+
+duration = time.time() - start_time
+print(f'Training the SGD model took {duration} seconds.')
 
 score = sgd.score(x_test, y_test)
 print(f'SGD classsifier accuracy:\n{score}')
@@ -415,6 +432,8 @@ print(f'average length of headline text: {np.mean(headline_lengths):.3f} charact
 # In[24]:
 
 
+start_time = time.time()
+
 print('Tokenising text into sequences...')
 
 # Turn titles into lists of tokens:
@@ -431,7 +450,8 @@ x_train = tokenizer.texts_to_sequences(x_train['TITLE'].values)
 x_test = tokenizer.texts_to_sequences(x_test['TITLE'].values)
 
 
-# Pad or truncate the input sequences so they are compatible with the input layer of the neural network.
+# Pad or truncate the input sequences so they are compatible with the input layer of the neural network, and
+# one hot encode the output categorical labels, so they are compatible with the output layer of the neural network.
 
 # In[25]:
 
@@ -448,8 +468,6 @@ x_test = pad_sequences(x_test, maxlen=max_title_length)
 x_train.shape
 
 
-# One hot encode the output categorical labels, so they are compatible with the output layer of the neural network.
-
 # In[26]:
 
 
@@ -460,6 +478,9 @@ onehot.fit(y_train)
 
 y_train = onehot.transform(y_train)
 y_test = onehot.transform(y_test)
+
+duration = time.time() - start_time
+print(f'Training the neural network took {duration} seconds.')
 
 
 # ## Compiling the neural network
@@ -491,11 +512,16 @@ print(model.summary())
 # In[28]:
 
 
+start_time = time.time()
+
 # Train the model for 4 epochs.
 hist = model.fit(x_train, y_train.todense(),
                  validation_data=(x_test, y_test.todense()),
                  epochs=4,
                  batch_size=128)
+
+duration = time.time() - start_time
+print(f'Training the neural network took {duration} seconds.')
 
 
 # In[29]:
@@ -507,7 +533,7 @@ print(f'Test set\n  Loss: {score[0]}\n  Accuracy: {score[1]}')
 
 # ## Visualizing the training process
 # 
-# Training and validation accuracy and loss across epochs are plotted. Overfitting does not seem to be an issue.
+# Training and validation accuracy and loss across epochs are plotted. Overfitting does not seem to be issue.
 
 # In[30]:
 

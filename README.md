@@ -11,9 +11,9 @@ The aims of this project were:
   publishing in 2020 (expecting a spike in health-related articles due to the
   pandemic).
 
-The models were trained to, given a headline text of any length, predict
-what news category it would belong to, out of "business", "entertainment",
-"health", and "science/technology".
+The classifier models were trained to, given a headline text of any length,
+predict what news category it would belong to, out of "business",
+"entertainment", "health", and "science/technology".
 
 ## Dataset sources
 
@@ -35,7 +35,28 @@ The exact preprocessing steps that were are documented in the Jupyter notebook.
 
 ## Results
 
-A summary of the model comparison:
+A summary of the model comparison, figures taken from a sample run:
+
+| Model                     | Accuracy | Training time | Preprocessing time |
+| ------------------------- | -------- | ------------- | ------------------ |
+| Naive Bayes               | 92.6%    | 0.1s          | 8.1s               |
+| SGD                       | 93.8%    | 3.0s          | 8.1s               |
+| Neural network (non-LSTM) | 96.8%    | 91.9s         | 13.3s              |
+
+The loss for the neural network was around 8.8%.
+
+The results are approximate as there are variations between runs due to
+randomness.
+
+The results of the New York Times analysis, also from the sample run:
+
+![NYT-monthly-counts](output/sample-run/nyt2020.png)
+
+Unsurprisingly, we see a very sharp increase in health-related articles
+recently. Perhaps as a consequence of that, there were slight declines in the
+counts for the other categories. Though, because the 4 categories obviously
+do not encompass all of the New York Times' content, these results are not to
+be taken too seriously.
 
 ## Environment setup and dependencies
 
