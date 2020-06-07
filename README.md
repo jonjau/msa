@@ -15,6 +15,13 @@ The classifier models were trained to, given a headline text of any length,
 predict what news category it would belong to, out of "business",
 "entertainment", "health", and "science/technology".
 
+## Table of contents
+
+* [Dataset Sources](#dataset-sources)
+* [Training and testing the models](#training-and-testing-the-models)
+* [Results](#results)
+* [Environment setup and dependencies](#environment-setup-and-dependencies)
+
 ## Dataset sources
 
 * [News Aggregator Dataset](https://www.kaggle.com/uciml/news-aggregator-dataset):
@@ -31,9 +38,12 @@ in both `news-categorizer.py` and `news-categorizer.ipynb` (the former is
 just a conversion of the latter). Running them will both train and test the
 models, as well as produce output and visualizations.
 
-The exact preprocessing steps that were are documented in the Jupyter notebook.
+The exact preprocessing steps that were taken are documented in the Jupyter
+notebook.
 
 ## Results
+
+### Model comparison
 
 A summary of the model comparison, figures taken from a sample run:
 
@@ -47,6 +57,8 @@ The loss for the neural network was around 8.8%.
 
 The results are approximate as there are variations between runs due to
 randomness.
+
+### New York Times analysis
 
 The results of the New York Times analysis, also from the sample run:
 
