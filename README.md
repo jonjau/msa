@@ -9,7 +9,7 @@
 * [Dataset Sources](#dataset-sources)
 * [Training and testing the models](#training-and-testing-the-models)
 * [Results](#results)
-* [Running on Azure notebooks](#azure-notebook)
+* [Running on Azure notebooks](#running-on-azure-notebooks)
 * [Environment setup and dependencies](#environment-setup-and-dependencies)
 
 ## Description
@@ -41,7 +41,7 @@ predict what news category it would belong to, out of "business",
 
 ## Training and testing the models
 
-* [Running on Azure notebooks](#azure-notebook)
+* [Running on Azure notebooks](#running-on-azure-notebooks)
   (slower, but no need to replicate environment)
 * [Running locally](#environment-setup-and-dependencies)
 
@@ -100,8 +100,8 @@ be taken too seriously.
 
 The Jupyter notebook is available
 [on Azure notebooks](https://notebooks.azure.com/jonjau/projects/msa2020-ml-project).
-It is much slower (10-15 minutes to run the whole notebook), but does not
-require any installation.
+It is much slower (15-20 minutes to run the whole notebook), but does not
+require any installation. **Select Python 3.6 when prompted about the kernel.**
 
 ## Environment setup and dependencies
 
