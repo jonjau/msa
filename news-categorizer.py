@@ -169,7 +169,7 @@ x_train.shape, x_test.shape, y_train.shape, y_test.shape
 # 
 # The preprocessing steps are shared between naive Bayes and SGD:
 # 
-# * Convert text (the single feature) into count vectors
+# * Convert text (the single feature) into count vectors (**removing stop words in the process**)
 # * Encode the categories (the label)
 
 # In[9]:
@@ -180,7 +180,7 @@ start_time = time.time()
 print('Vectorising text into features and encoding categorical labels...')
 
 # Turn text into integer count vectors
-vectorizer = CountVectorizer()
+vectorizer = CountVectorizer(stop_words = 'english')
 vectorizer.fit(x_train['TITLE'])
 
 x_train = vectorizer.transform(x_train['TITLE'])
@@ -202,7 +202,7 @@ print(f'Preprocessing for Naive Bayes and SGD took {duration} seconds.')
 # 
 # Both models' accuracies are high, above 90%, with default parameters.
 # 
-# SGD outperforms the Naive Bayes **(\~93.7% compared to \~92.6%)**, but takes slightly longer to train.
+# SGD outperforms the Naive Bayes **(\~93.7% compared to \~92.6% in the sample run)**, but takes slightly longer to train.
 
 # In[10]:
 
@@ -506,7 +506,7 @@ print(model.summary())
 # 
 # Training the model for 4 epochs takes several minutes.
 # 
-# The neural network performs well, with **high accuracy (\~96.80%) and low loss (\~8.75%).**
+# The neural network performs well, with **high accuracy (\~96.80%) and low loss (\~8.75% in the sample run).**
 # Notably, it performs better than both the Naive Bayes and SGD models.
 
 # In[28]:
@@ -634,11 +634,6 @@ if custom_title:
 # The neural network was the most accurate by far, but it was also the slowest to train.
 # It appears that for medium-sized text datasets such as this, the Naive Bayes  or SGD
 # models are just as practically useful.
-# 
-# Possible extensions to this project include using multiple source datasets,
-# allow for more labels (categories), and multiple labels for one item (topics often overlap).
-# Also, with a few adjustments, these models can be trained on other medium-sized text data,
-# for instance, film synopses or YouTube comments.
 
 # ## Applying the model: 'How has 2020 been so far?'
 # 
@@ -742,6 +737,11 @@ plt.plot();
 # Unsurprisingly, we see a very sharp increase in health-related articles recently. Perhaps as a consequence of that, there were slight declines in the counts for the other categories.
 # 
 # Though, because the 4 categories obviously do not encompass all of the New York Times' content, these results are not to be taken too seriously. In additions to this, there is also a considerable degree of randomness involved, so variations between runs are to be expected.
+# 
+# Possible extensions to this project include incorporating other news article datasets,
+# allow for more labels (categories), and multiple labels for one item (topics often overlap).
+# Also, with a few adjustments, these models can be trained on other medium-sized text data,
+# for instance, film synopses or YouTube comments.
 
 # In[ ]:
 
