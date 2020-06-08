@@ -1,6 +1,7 @@
 # News Categorizer
 
-**This project is a submission for the 2020 Microsoft Student Accelerator Program.**
+**This project is a submission for the 2020**
+**Microsoft Student Accelerator Program, AI & Advanced Analytics.**
 
 ## Table of contents
 
@@ -13,7 +14,7 @@
 ## Description
 
 The choices of models and datasets are summarized in
-[a pdf](tex/description.pdf).
+[`description.pdf`](tex/description.pdf).
 
 The aims of this project were:
 
@@ -65,9 +66,13 @@ The loss for the neural network was around 8.8%.
 The results are approximate as there are variations between runs due to
 randomness.
 
+The neural network was chosen for the following analysis due to its high
+accuracy.
+
 ### New York Times analysis
 
-The results of the New York Times analysis, also from the sample run:
+A total of 17235 articles were categorized by the neural network. The
+results from the sample run:
 
 ![NYT-monthly-counts](output/sample-run/nyt2020.png)
 
@@ -79,7 +84,7 @@ be taken too seriously.
 
 ## Environment setup and dependencies
 
-The dependencies are:
+As listed in `environment.yml`, The dependencies are:
 
 * `python>=3.6`
 * `numpy`
@@ -96,10 +101,11 @@ Not needed if the current Python environment already has the dependencies
 installed.
 
 `conda` is required for the following steps. Though, installing the above
-dependencies with `pip` in a `virtualenv` or otherwise might also work.
+dependencies with `pip` in a `venv` Python environment or otherwise might
+also work.
 
 After cloning the repository into a folder, create a `conda` environment,
-check that it has been installed then activate it.
+check that it has been installed then activate it:
 
 ```_
 conda env create -f environment.yml

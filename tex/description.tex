@@ -5,7 +5,7 @@
 \usepackage{parskip}
 \usepackage{hyperref}
 
-\geometry{a4paper, margin=1in}
+\geometry{a4paper, margin=21mm}
 
 \setlength{\parindent}{0pt}
 
@@ -16,19 +16,26 @@
 \large\textbf{jonathan.c.jauhari@gmail.com} \\[2mm]
 \large{June 2020}
 
-\href{https://github.com/jonjau/msa-ml-project}{Project repository link}
+\url{https://github.com/jonjau/msa2020-ml-project}
 
 \subsection*{Aims}
 
 \begin{itemize}
     \item To develop a news headline text classifier.
     \item To compare 3 machine learning approaches (Naive Bayes, SGD, neural 
-          network) in medium-sized text classification.
+          network) for medium-sized text classification.
     \item To roughly estimate what kind of articles the New York Times has been
           publishing in 2020 (expecting a spike in health-related articles
           due to the pandemic).
 \end{itemize}
 
+I chose the topic of classifying articles, because text identification
+problems are more easily generalisable. The preprocessing steps and models
+would only require few adjustments to work on other medium sized documents.
+News classification in particular is intuitive in that it is easy to type in
+a random news headline to feed as input to the model.
+
+%This makes it simple to test and perform analyses with.
 
 \subsection*{Models used}
 
@@ -70,16 +77,15 @@ gathered from:
 
 The News Aggregator Dataset was chosen, among the many \textbf{labeled} news
 article datasets that are available, because it had by far the most entries
-when compared to other datasets. Though it only had a few categories, each
-category was broad enough to be sufficient for the analysis (a rough
-estimate).
-
-It also did not require as much preprocessing as some other datasets, such 
-as the Reuters news dataset, as it was already in a CSV format, with few
-missing values, and well-documented features.
+when compared to other datasets. This is likely why all the models trained on
+it had high accuracies. Though it only had a few categories, each category
+was broad enough to be sufficient for the analysis (a rough estimate). It
+also did not require as much preprocessing as some other datasets, such as
+the Reuters news dataset, as it was well documented, and already in a CSV
+format, with few missing values.
 
 The New York Times was chosen as the news website to analyse because their
-site map was readily accessible, and is known to report on a large variety of
-topics.
+site map was most readily accessible. They are also known to report on a
+large variety of topics.
 
 \end{document}
