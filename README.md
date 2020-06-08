@@ -1,6 +1,6 @@
 # News Categorizer
 
-**This project is a submission for the Microsoft Student Accelerator Program 2020.**
+**This project is a submission for the 2020 Microsoft Student Accelerator Program.**
 
 ## Table of contents
 
