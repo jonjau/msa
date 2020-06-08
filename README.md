@@ -9,11 +9,12 @@
 * [Dataset Sources](#dataset-sources)
 * [Training and testing the models](#training-and-testing-the-models)
 * [Results](#results)
+* [Running on Azure notebooks](#azure-notebook)
 * [Environment setup and dependencies](#environment-setup-and-dependencies)
 
 ## Description
 
-The choices of models and datasets are summarized in
+The project idea, choices of models and datasets are summarized in
 [`description.pdf`](tex/description.pdf).
 
 The aims of this project were:
@@ -40,16 +41,29 @@ predict what news category it would belong to, out of "business",
 
 ## Training and testing the models
 
+* [Running on Azure notebooks](#azure-notebook)
+  (slower, but no need to replicate environment)
+* [Running locally](#environment-setup-and-dependencies)
+
 The training and testing code for the three models used are
 in both `news-categorizer.py` and `news-categorizer.ipynb` (the former is
 just a conversion of the latter). Running them will both train and test the
-models, as well as produce output and visualizations. The environment setup
-is detailed [here](#environment-setup-and-dependencies).
+models, as well as produce output and visualizations.
 
 The exact preprocessing steps that were taken are documented in the Jupyter
 notebook.
 
 ## Results
+
+### Outputs
+
+* Bar graph of the composition of the training data.
+* Visualizations for the confusion matrices of the Naive Bayes and SGD models
+* Plots of the accuracy and loss across epochs for the neural network
+* A plot of the 2020 New York Times monthly number of articles grouped by
+  category as predicted by the neural network.
+* A CSV of all the free to read 2020 articles gathered, with their predicted
+  categories.
 
 ### Model comparison
 
@@ -69,7 +83,7 @@ randomness.
 The neural network was chosen for the following analysis due to its high
 accuracy.
 
-### New York Times analysis
+### the New York Times analysis
 
 A total of 17235 articles were categorized by the neural network. The
 results from the sample run:
@@ -81,6 +95,13 @@ recently. Perhaps as a consequence of that, there were slight declines in the
 counts for the other categories. Though, because the 4 categories obviously
 do not encompass all of the New York Times' content, these results are not to
 be taken too seriously.
+
+## Running on Azure notebooks
+
+The Jupyter notebook is available
+[on Azure notebooks](https://notebooks.azure.com/jonjau/projects/msa2020-ml-project).
+It is much slower (10-15 minutes to run the whole notebook), but does not
+require any installation.
 
 ## Environment setup and dependencies
 
@@ -101,8 +122,8 @@ Not needed if the current Python environment already has the dependencies
 installed.
 
 `conda` is required for the following steps. Though, installing the above
-dependencies with `pip` in a `venv` Python environment or otherwise might
-also work.
+dependencies with `pip` in a `venv` Python environment or otherwise will
+likely also work.
 
 After cloning the repository into a folder, create a `conda` environment,
 check that it has been installed then activate it:
@@ -130,7 +151,7 @@ python news-categorizer.py
 The script will take a several minutes (due to the neural network training)
 to run.
 
-This will populate the output folder with plots and a CSV.
+This will populate the output folder with [plots and a CSV](#outputs).
 
 #### Running on Jupyter
 
@@ -149,7 +170,7 @@ jupyter notebook
 ```
 
 As the cells are run, the notebook will populate the output folder
-with plots and a CSV.
+with [plots and a CSV](#outputs).
 
 ### Dismantling the environment
 
