@@ -1,7 +1,7 @@
 # News Categorizer
 
 **This project is a submission for the 2020**
-**Microsoft Student Accelerator Program, AI & Advanced Analytics.**
+**Microsoft Student Accelerator Program, AI & Advanced Analytics bootcamp.**
 
 ## Table of contents
 
@@ -36,7 +36,7 @@ predict what news category it would belong to, out of "business",
   Headlines and categories of 400k news stories from 2014,
   derived from the UCI Machine Learning Repository
   [dataset](http://archive.ics.uci.edu/ml/datasets/News+Aggregator).
-* The New York Times 2020 headlines of monthly free to read articles that I
+* Headlines of the New York Times' monthly free to read articles in 2020 that I
   gathered from [their site map](https://spiderbites.nytimes.com/2020/).
 
 ## Training and testing the models
