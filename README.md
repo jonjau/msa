@@ -1,7 +1,7 @@
 # News Categorizer
 
 **This project is a submission for the 2020**
-**Microsoft Student Accelerator Program, AI & Advanced Analytics.**
+**Microsoft Student Accelerator Program, AI & Advanced Analytics bootcamp.**
 
 ## Table of contents
 
@@ -9,7 +9,7 @@
 * [Dataset Sources](#dataset-sources)
 * [Training and testing the models](#training-and-testing-the-models)
 * [Results](#results)
-* [Running on Azure notebooks](#azure-notebook)
+* [Running on Azure notebooks](#running-on-azure-notebooks)
 * [Environment setup and dependencies](#environment-setup-and-dependencies)
 
 ## Description
@@ -36,12 +36,12 @@ predict what news category it would belong to, out of "business",
   Headlines and categories of 400k news stories from 2014,
   derived from the UCI Machine Learning Repository
   [dataset](http://archive.ics.uci.edu/ml/datasets/News+Aggregator).
-* The New York Times 2020 headlines of monthly free to read articles that I
+* Headlines of the New York Times' monthly free to read articles in 2020 that I
   gathered from [their site map](https://spiderbites.nytimes.com/2020/).
 
 ## Training and testing the models
 
-* [Running on Azure notebooks](#azure-notebook)
+* [Running on Azure notebooks](#running-on-azure-notebooks)
   (slower, but no need to replicate environment)
 * [Running locally](#environment-setup-and-dependencies)
 
@@ -100,8 +100,8 @@ be taken too seriously.
 
 The Jupyter notebook is available
 [on Azure notebooks](https://notebooks.azure.com/jonjau/projects/msa2020-ml-project).
-It is much slower (10-15 minutes to run the whole notebook), but does not
-require any installation.
+It is much slower (15-20 minutes to run the whole notebook), but does not
+require any installation. **Select Python 3.6 when prompted about the kernel.**
 
 ## Environment setup and dependencies
 
