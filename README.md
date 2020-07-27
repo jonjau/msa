@@ -24,7 +24,7 @@ The aims of this project were:
   in medium-sized text classification.
 * To roughly estimate what kind of articles the New York Times has been
   publishing in 2020 (expecting a spike in health-related articles due to the
-  pandemic).
+  COVID-19 pandemic).
 
 The classifier models were trained to, given a headline text of any length,
 predict what news category it would belong to, out of "business",
@@ -141,7 +141,7 @@ environment named `nc_env` does not already exist.
 #### Running on the command line
 
 The script `news-categorizer.py` is a direct
-`jupyter nbconvert --to script'` conversion from
+`jupyter nbconvert --to script` conversion from
 `news-categorizer.ipynb`.
 
 ```_
